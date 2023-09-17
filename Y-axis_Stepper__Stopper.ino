@@ -13,7 +13,8 @@ int xData = 0;
 
 void receiveEvent(int bytes){
   xData = Wire.read();
-  Serial.println("data recieved");
+  Serial.print("data recieved: ");
+  Serial.println(xData);
 }
 
 void setup() {
@@ -27,11 +28,12 @@ void setup() {
 }
 
 void loop() {
-  if (xData=='1'){
+  if (xData==1){
+    Serial.println("1 hi");
     myStepper.step(2048);
     yPos++;
     xData = 0;
-    Serial.println("1");
+    Serial.println("1 bye");
   }
 //  if (digitalRead(limitPin)==0){
 //    myStepper.step(-1);
