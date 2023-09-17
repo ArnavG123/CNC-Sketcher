@@ -28,17 +28,18 @@ void setup() {
 }
 
 void loop() {
-  if (xData==1){
-    Serial.println("1 hi");
-    myStepper.step(2048);
+  if (xData == 1){
+//    Serial.println("1 hi");
+    myStepper.step(-25);
     yPos++;
     xData = 0;
-    Serial.println("1 bye");
+//    Serial.println("1 bye");
   }
-//  if (digitalRead(limitPin)==0){
-//    myStepper.step(-1);
-//    yPos=0;
-//  }
+  
+  if (digitalRead(limitPin) == 0){
+    myStepper.step(-1);
+    yPos=0;
+  }
 
 //  Serial.println(yPos);
 }
